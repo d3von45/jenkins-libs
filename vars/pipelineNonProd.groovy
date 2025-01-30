@@ -6,13 +6,9 @@ def call(Map config = [:]) {
     stages{
       stage('Checkout'){
         steps {
-            checkout scm
-        }
-      }
-      
-      stage('Sonar'){
-        steps{
-          sonarScan(config.sonarConfig ?: [:])
+            git branch: '${config.repo.branch}',
+                        credentialsId: '${config.repo.credentials}',
+                        url: '${config.repo.url}'
         }
       }
 
