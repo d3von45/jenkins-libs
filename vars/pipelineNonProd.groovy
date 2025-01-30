@@ -6,9 +6,9 @@ def call(Map config = [:]) {
     stages{
       stage('Checkout'){
         steps {
-            git branch: '${config.repo.branch}',
-                        credentialsId: '${config.repo.credentials}',
-                        url: '${config.repo.url}'
+            git branch: "${config.repo.branch}",
+                        credentialsId: "${config.repo.credentials}",
+                        url: "${config.repo.url}"
         }
       }
 
