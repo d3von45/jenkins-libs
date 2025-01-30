@@ -28,10 +28,6 @@ def call(Map config = [:]) {
               currentBuild.result = currentBuild.result ?: 'SUCCESS'
           }
       }
-      failure {
-          slackSend channel: '#build-failures',
-                          message: "Build Failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-        }
     }
   }
 
