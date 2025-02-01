@@ -35,6 +35,7 @@ def call(Map config = [:]) {
       passwordVariable: 'GIT_PASSWORD'
     )]) {
         sh """
+          ls
           git config user.name "d3von45"
           git config user.email "khanhduy.nguyen4520@gmail.com"
           git add .
