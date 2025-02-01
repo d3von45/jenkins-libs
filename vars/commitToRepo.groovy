@@ -16,18 +16,6 @@ def call(Map config = [:]) {
     }
 
    dir('deployments') {
-    /*
-    checkout([
-      $class: 'GitSCM',
-      branches: [[name: config.branch]],
-      extensions: [],
-      userRemoteConfigs: [[
-        url: config.repoUrl,
-        credentialsId: config.credentialsId
-      ]]
-    ])
-    */
-
     git branch: config.branch,
       credentialsId: config.credentialsId,
       changelog: false,
