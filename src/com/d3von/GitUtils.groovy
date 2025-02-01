@@ -1,9 +1,9 @@
 package com.d3von
 
 class GitUtils {
-    static void commitAndPush(String repoUrl, String branch, String credentialsId, String commitMessage, Closure changes) {
-        dir('deployments') {
-            checkout([
+    static void commitAndPush(steps, String repoUrl, String branch, String credentialsId, String commitMessage, Closure changes) {
+        steps.dir('deployments') {
+            steps.checkout([
                 $class: 'GitSCM',
                 branches: [[name: branch]],
                 extensions: [],
@@ -17,12 +17,12 @@ class GitUtils {
             changes()
 
             // Commit and push
-            withCredentials([usernamePassword(
+            steps.withCredentials([usernamePassword(
                 credentialsId: credentialsId,
                 usernameVariable: 'GIT_USERNAME',
                 passwordVariable: 'GIT_PASSWORD'
             )]) {
-                sh """
+                steps.sh """
                     git config user.name "d3von45"
                     git config user.email "khanhduy.nguyen4520@gmail.com"
                     git add .

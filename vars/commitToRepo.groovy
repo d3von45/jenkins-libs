@@ -17,7 +17,9 @@ def call(Map config = [:]) {
         error "Credentials ID is required!"
     }
 
-    GitUtils.commitAndPush(
+    def gitUtils = new GitUtils()
+    gitUtils.commitAndPush(
+        steps,
         config.repoUrl,
         config.branch,
         config.credentialsId,
