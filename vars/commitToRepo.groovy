@@ -26,7 +26,7 @@ def call(Map config = [:]) {
       ]]
     ])
     
-    changes()
+    config.changes()
 
     // Commit and push
     withCredentials([usernamePassword(
