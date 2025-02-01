@@ -27,7 +27,7 @@ class GitUtils {
                     git config user.email "khanhduy.nguyen4520@gmail.com"
                     git add .
                     git commit -m "${commitMessage}"
-                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${repoUrl.replace('https://', '')} ${branch}
+                    git push https://${steps.env.GIT_USERNAME}:${steps.env.GIT_PASSWORD}@${repoUrl.replace('https://', '')} ${branch}
                 """
             }
         }
