@@ -19,6 +19,19 @@ def call(Map config = [:]) {
           }
         }
       }
+
+      stage('Commit Deployments Change'){
+        steps {
+          script {
+            commitToRepo(
+              commitMessage: 'Updated version number',
+              changes: {
+                sh 'echo "version=1.2.3" > version.txt'
+              }
+            )
+          }   
+        }
+      }
     }
 
     post {
