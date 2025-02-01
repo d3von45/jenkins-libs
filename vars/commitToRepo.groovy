@@ -39,7 +39,7 @@ def call(Map config = [:]) {
           git config user.email "khanhduy.nguyen4520@gmail.com"
           git add .
           git commit -m "${config.commitMessage}"
-          git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${repoUrl.replace('https://', '')} ${config.branch}
+          git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${config.repoUrl.replace('https://', '')} ${config.branch}
         """
       }
    }
